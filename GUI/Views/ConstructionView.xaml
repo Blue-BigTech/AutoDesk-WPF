@@ -1,0 +1,234 @@
+﻿<UserControl x:Class="GUI.Views.ConstructionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModels="clr-namespace:GUI.ViewModels"
+             mc:Ignorable="d"
+             HorizontalAlignment="Stretch"
+             VerticalAlignment="Stretch"
+             HorizontalContentAlignment="Stretch"
+             VerticalContentAlignment="Stretch"
+             d:DesignHeight="400"
+             d:DesignWidth="650"
+             Width="650" Height="400">
+    
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <viewModels:MainViewModel x:Key="Vm"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/GUI;component/Styles/ApplicationStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid DataContext="{StaticResource Vm}">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Style="{StaticResource BottomRow}"/>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0" Background="#FCFCFC">
+    
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+    
+            <Grid Grid.Column="0" Background="#F1F1F1">
+                
+                <StackPanel VerticalAlignment="Top">
+                    <GroupBox Header="Walls" Style="{StaticResource GroupBox}">
+                        <StackPanel Orientation="Vertical">
+                            
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBox Text="{Binding ConstructionViewModel.RoomTop}" Style="{StaticResource TextBox}" HorizontalContentAlignment="Center" Width="80"/>
+                            </StackPanel>
+                            
+                            <Image Margin="5" Source="pack://application:,,,/GUI;component/Images/TopViewWalls.png" Height="30" HorizontalAlignment="Center"/>
+
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBox Text="{Binding ConstructionViewModel.RoomBottom}" Style="{StaticResource TextBox}" HorizontalContentAlignment="Center" Width="80"/>
+                            </StackPanel>
+                            
+                            <Grid Style="{StaticResource GridSpace}">
+                                
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                
+                                <StackPanel Grid.Column="0" x:Name="xValues">
+                                    
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Height="25" Content="X" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" />
+                                        <TextBox Text="{Binding ConstructionViewModel.LeftWallX}" Style="{StaticResource TextBox}" HorizontalContentAlignment="Center" Width="50"/>
+                                    </StackPanel>
+                                    
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Height="25" Content="Y" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" />
+                                        <TextBox Text="{Binding ConstructionViewModel.LeftWallY}" Style="{StaticResource TextBox}" HorizontalContentAlignment="Center" Width="50"/>
+                                    </StackPanel>
+                                    
+                                </StackPanel>
+                                
+                                <StackPanel Grid.Column="1" HorizontalAlignment="Right" x:Name="yValues">
+                                    
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox Text="{Binding ConstructionViewModel.RightWallX}" Style="{StaticResource TextBox}" HorizontalContentAlignment="Center" Width="50"/>
+                                        <Label Height="25" Content="X" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" />
+                                    </StackPanel>
+                                    
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox Text="{Binding ConstructionViewModel.RightWallY}" Style="{StaticResource TextBox}" HorizontalContentAlignment="Center" Width="50"/>
+                                        <Label Height="25" Content="Y" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" />
+                                    </StackPanel>
+                                    
+                                </StackPanel>
+                                
+                            </Grid>
+
+                            <Grid>
+                                <GroupBox Margin="0,0,0,15">
+                                    <StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <GroupBox Header="Which wall" Style="{StaticResource GroupBox}">
+                                                <StackPanel Orientation="Vertical">
+                                                    <RadioButton Margin="0,2,0,2" Content="Left" IsChecked="{Binding ConstructionViewModel.IsPositionedOnLeftWall}" />
+                                                    <RadioButton Margin="0,2,0,2" Content="Right" />
+                                                </StackPanel>
+                                            </GroupBox>
+                                            <GroupBox Width="120" Header="Point of Wall" Style="{StaticResource GroupBox}">
+                                                <StackPanel>
+                                                    <ComboBox Margin="5" ItemsSource="{Binding ConstructionViewModel.WallPositions}" SelectedValue="{Binding ConstructionViewModel.SelectedPositionOnWall}"/>
+                                                </StackPanel>
+                                            </GroupBox>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Label Height="25" Content="Distance:" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" />
+                                            <TextBox Text="{Binding ConstructionViewModel.DistanceProductCenter}" Style="{StaticResource TextBox}" HorizontalContentAlignment="Center" Width="50"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </GroupBox>
+                            </Grid>
+                            
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Height="25" Content="Move X:" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" />
+                                    <TextBox Text="{Binding ConstructionViewModel.MoveX}" Style="{StaticResource TextBox}" HorizontalContentAlignment="Center" Width="50"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Height="25" Content="Move Y:" VerticalContentAlignment="Center" HorizontalAlignment="Right"/>
+                                    <TextBox Text="{Binding ConstructionViewModel.MoveY}" Style="{StaticResource TextBox}" Width="50"/>
+                                </StackPanel>
+                            </StackPanel>
+                            
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+            </Grid>
+            
+            <Grid Grid.Column="1">
+    
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto" MinHeight="25" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" MinHeight="40"/>
+                </Grid.RowDefinitions>
+        
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="30"/>
+                </Grid.ColumnDefinitions>
+        
+                <!--Bottom Left-->
+                <TextBox Text="{Binding ConstructionViewModel.DownLeftX}" Style="{StaticResource TextBox}" Grid.Row="8" Grid.Column="3"/>
+                <TextBox Text="{Binding ConstructionViewModel.DownLeftY}" Style="{StaticResource TextBox}" Grid.Row="9" Grid.Column="4"/>
+        
+                <!--Bottom Right-->
+                <TextBox Text="{Binding ConstructionViewModel.DownRightX}" Style="{StaticResource TextBox}" Grid.Row="8" Grid.Column="7"/>
+                <TextBox Text="{Binding ConstructionViewModel.DownRightY}" Style="{StaticResource TextBox}" Grid.Row="9" Grid.Column="6"/>
+        
+                <!--Up Right-->
+                <TextBox Text="{Binding ConstructionViewModel.UpRightX}" Style="{StaticResource TextBox}" Grid.Row="3" Grid.Column="7"/>
+                <TextBox Text="{Binding ConstructionViewModel.UpRightY}" Style="{StaticResource TextBox}" Grid.Row="2" Grid.Column="6"/>
+        
+                <!--Up Left-->
+                <TextBox Text="{Binding ConstructionViewModel.UpLeftX}" Style="{StaticResource TextBox}" Grid.Row="3" Grid.Column="3"/>
+                <TextBox Text="{Binding ConstructionViewModel.UpLeftY}" Style="{StaticResource TextBox}" Grid.Row="2" Grid.Column="4"/>
+        
+                <!--Middle - Down-->
+                <TextBox Text="{Binding ConstructionViewModel.MiddleDown}" Style="{StaticResource TextBox}" Grid.Row="9" Grid.Column="5"/>
+        
+                <!--Middle - Right-->
+                <TextBox Text="{Binding ConstructionViewModel.MiddleRight}" Style="{StaticResource TextBox}" Grid.Row="5" Grid.Column="7"/>
+        
+                <!--Middle - Up-->
+                <TextBox Text="{Binding ConstructionViewModel.MiddleUp}" Style="{StaticResource TextBox}" Grid.Row="2" Grid.Column="5"/>
+        
+                <!--Middle - Left-->
+                <TextBox Text="{Binding ConstructionViewModel.MiddleLeft}" Style="{StaticResource TextBox}" Grid.Row="5" Grid.Column="3"/>
+        
+                <!--Height Left-->
+                <TextBox Text="{Binding ConstructionViewModel.HeightOpeningLeft}" Style="{StaticResource TextBox}" Width="40" Grid.Row="5" Grid.Column="2"/>
+        
+                <!--Height Right-->
+                <TextBox Text="{Binding ConstructionViewModel.HeightOpeningRight}" Style="{StaticResource TextBox}" Width="40" Grid.Row="5" Grid.Column="8"/>
+        
+                <!--Width Bottom-->
+                <TextBox Text="{Binding ConstructionViewModel.WidthOpeningBottom}" Style="{StaticResource TextBox}" Width="40" Grid.Row="10" Grid.Column="5"/>
+        
+                <!--Width Top-->
+                <TextBox Text="{Binding ConstructionViewModel.WidthOpeningTop}" Style="{StaticResource TextBox}" Width="40" Grid.Row="1" Grid.Column="5"/>
+    
+                <Rectangle Grid.Row="3" Grid.Column="4" Grid.RowSpan="6" Grid.ColumnSpan="3" Stroke="#0560E3" StrokeThickness="1" Margin="2"/>
+    
+            </Grid>
+    
+        </Grid>
+        
+        <Grid Grid.Row="1" HorizontalAlignment="Stretch" Style="{StaticResource BottomBar}">
+        
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+        
+            <Border Grid.Row="0" BorderThickness="0.5" BorderBrush="#999"/>
+        
+            <Grid Grid.Row="1" HorizontalAlignment="Stretch">
+                <Grid HorizontalAlignment="Stretch">
+                    <Button Click="Back_HomeView" HorizontalAlignment="Left" Content="Back Home" Style="{StaticResource ButtonBaseStyle}"/>
+                    <Button x:Name="GeneralProductSelection" Click="Next_GeneralProductView" HorizontalAlignment="Right" Content="Next" Style="{StaticResource ButtonBaseStyle}"/>
+                    <Button x:Name="DrawOpening" Command="{Binding ConstructionViewModel.DrawConstructionOpening}" Content="Draw Opening" HorizontalAlignment="Right" Style="{StaticResource ButtonBaseStyle}"/>
+                </Grid>
+            </Grid>
+        
+        </Grid>
+        
+    </Grid>
+
+</UserControl>

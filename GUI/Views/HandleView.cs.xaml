@@ -1,0 +1,150 @@
+﻿<UserControl x:Class="GUI.Views.HandleView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModels="clr-namespace:GUI.ViewModels"
+             mc:Ignorable="d"
+             HorizontalAlignment="Stretch"
+             VerticalAlignment="Stretch"
+             HorizontalContentAlignment="Stretch"
+             VerticalContentAlignment="Stretch"
+             d:DesignHeight="400"
+             d:DesignWidth="650"
+             Width="650" Height="400">
+    
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <viewModels:MainViewModel x:Key="Vm"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/GUI;component/Styles/ApplicationStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid DataContext="{StaticResource Vm}">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Style="{StaticResource BottomRow}"/>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0">
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <GroupBox Grid.Row="0" Header="Select Handle" Style="{StaticResource GroupBox}">
+                    <StackPanel Margin="5">
+                        <ComboBox ItemsSource="{Binding HandleViewModel.Handles}" SelectedValue="{Binding HandleViewModel.SelectedHandle}" Width="150" HorizontalAlignment="Left" />
+                    </StackPanel>
+                </GroupBox>
+                
+                <GroupBox Grid.Row="1" Header="Position Method" Style="{StaticResource GroupBox}">
+                    <StackPanel Margin="5">
+                        <ComboBox ItemsSource="{Binding HandleViewModel.PositionMethods}" SelectedValue="{Binding HandleViewModel.SelectedPositionMethod}" Width="150" HorizontalAlignment="Left" />
+                    </StackPanel>
+                </GroupBox>
+                
+                <GroupBox Grid.Row="2" Header="Settings" Style="{StaticResource GroupBox}">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Handle length:"></Label>
+                            <TextBox Width="50" Style="{StaticResource TextBox}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+            </Grid>
+            
+            <GroupBox Header="Handle Image" Grid.Column="1" Style="{StaticResource GroupBox}">
+
+                <StackPanel>
+                    
+                    <CheckBox x:Name="ChangeHandleSettings" Checked="ChangeHandleSettings_OnChecked" Unchecked="ChangeHandleSettings_OnUnchecked" Content="Change Handle Properties" Margin="5"/>
+                    
+                    <Image x:Name="HandleImage" Visibility="Visible" MaxHeight="200" Margin="5,5,30,5" HorizontalAlignment="Left" VerticalAlignment="Top" Source="pack://application:,,,/GUI;component/Images/Handles/Horn.jpg"/>
+                    
+                    <StackPanel x:Name="HandleSettings" Visibility="Collapsed" HorizontalAlignment="Left" Margin="10, 0, 0, 0">
+                                        
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0, 0, 0, 5">
+                            <Label Content="Grip Width:" Padding="5, 0" Height="20"></Label>
+                            <TextBox x:Name="GripWidth" Width="50" Height="20" HorizontalAlignment="Right" Text="{Binding HandleViewModel.GripWidth, Mode=TwoWay}"/>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0, 0, 0, 5">
+                            <Label Content="Grip Thickness:" Padding="5, 0" Height="20"></Label>
+                            <TextBox x:Name="GripThickness" Width="50" Height="20" HorizontalAlignment="Right" Text="{Binding HandleViewModel.GripThickness, Mode=TwoWay}"/>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0, 0, 0, 5">
+                            <Label Content="Grip Extension:" Padding="5, 0" Height="20"></Label>
+                            <TextBox x:Name="GripExtension" Width="50" Height="20" HorizontalAlignment="Right" Text="{Binding HandleViewModel.GripExtension, Mode=TwoWay}"/>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0, 0, 0, 5">
+                            <Label Content="Offset From Adapter:" Padding="5, 0" Height="20"></Label>
+                            <TextBox x:Name="HandleOffsetFromAdapter" Width="50" Height="20" HorizontalAlignment="Right" Text="{Binding HandleViewModel.HandleOffsetFromAdapter, Mode=TwoWay}"/>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0, 0, 0, 5">
+                            <Label Content="Adapter Width:" Padding="5, 0" Height="20"></Label>
+                            <TextBox x:Name="AdapterWidth" Width="50" Height="20" HorizontalAlignment="Right" Text="{Binding HandleViewModel.AdapterWidth, Mode=TwoWay}"/>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0, 0, 0, 5">
+                            <Label Content="Adapter Thickness:" Padding="5, 0" Height="20"></Label>
+                            <TextBox x:Name="AdapterThickness" Width="50" Height="20" HorizontalAlignment="Right" Text="{Binding HandleViewModel.AdapterThickness, Mode=TwoWay}"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0, 0, 0, 5">
+                            <Label Content="Adapter Height:" Padding="5, 0" Height="20"></Label>
+                            <TextBox x:Name="AdapterHeight" Width="50" Height="20" HorizontalAlignment="Right" Text="{Binding HandleViewModel.AdapterHeight, Mode=TwoWay}"/>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0, 0, 0, 5">
+                            <Label Content="Handle Wall Thickness:" Padding="5, 0" Height="20"></Label>
+                            <TextBox x:Name="HandleWallThickness" Width="50" Height="20" HorizontalAlignment="Right" Text="{Binding HandleViewModel.HandleWallThickness, Mode=TwoWay}"/>
+                        </StackPanel>
+                        
+                    </StackPanel>
+                    
+                </StackPanel>
+                
+            </GroupBox>
+
+
+        </Grid>
+        
+        <Grid Grid.Row="1" HorizontalAlignment="Stretch" Style="{StaticResource BottomBar}">
+        
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+        
+            <Border Grid.Row="0" BorderThickness="0.5" BorderBrush="#999"/>
+        
+            <Grid Grid.Row="1" HorizontalAlignment="Stretch">
+                <Grid HorizontalAlignment="Stretch">
+                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                        <Button Click="Back_designView" Content="Back" Style="{StaticResource ButtonBaseStyle}"/>
+                        <Button Click="Back_HomeView" Content="Home" Style="{StaticResource ButtonBaseStyle}"/>
+                    </StackPanel>
+                    <Button Click="Next_FinishView" Content="Finish" HorizontalAlignment="Right" Style="{StaticResource ButtonBaseStyle}"/>
+                </Grid>
+            </Grid>
+        
+        </Grid>
+        
+    </Grid>
+</UserControl>

@@ -1,0 +1,100 @@
+﻿<UserControl x:Class="GUI.Views.ManualDrawingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm="clr-namespace:GUI.ViewModels"
+             xmlns:viewModels="clr-namespace:GUI.ViewModels"
+             mc:Ignorable="d"
+             HorizontalAlignment="Stretch"
+             VerticalAlignment="Stretch"
+             HorizontalContentAlignment="Stretch"
+             VerticalContentAlignment="Stretch"
+             d:DesignHeight="400"
+             d:DesignWidth="650"
+             Width="650" Height="400">
+    
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <viewModels:MainViewModel x:Key="Vm"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/GUI;component/Styles/ApplicationStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid DataContext="{StaticResource Vm}">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Style="{StaticResource BottomRow}"/>
+        </Grid.RowDefinitions>
+        
+        <TabControl Grid.Row="0">
+            
+            <TabItem Header="General">
+                
+                <ScrollViewer>
+                    <StackPanel>
+                        <GroupBox Width="200" HorizontalAlignment="Left" Header="Production Dimensions" Style="{StaticResource GroupBox}">
+                    
+                            <StackPanel>
+                                <Button x:Name="SL_Prod_BottomDims" Click="SL_Prod_BottomDims_OnClick" Content="Add Bottom dimensions" Style="{StaticResource ButtonBaseStyle}"/>
+                                <Button Content="Add Dimensions Left" Style="{StaticResource ButtonBaseStyle}"/>
+                                <Button Content="Add Dimensions Right" Style="{StaticResource ButtonBaseStyle}"/>
+                            </StackPanel>
+                    
+                        </GroupBox>
+                    </StackPanel>
+                </ScrollViewer>
+                
+            </TabItem>
+            
+            <TabItem Header="Specific Product Manual Methods 1">
+                
+                <ScrollViewer>
+                    <StackPanel>
+                        <GroupBox Width="200" HorizontalAlignment="Left" Header="Production Dimensions" Style="{StaticResource GroupBox}">
+                    
+                            <StackPanel>
+                                <Button Click="SL_Prod_BottomDims_OnClick" Content="Add Bottom dimensions" Style="{StaticResource ButtonBaseStyle}"/>
+                                <Button Content="Add Dimensions Left" Style="{StaticResource ButtonBaseStyle}"/>
+                                <Button Content="Add Dimensions Right" Style="{StaticResource ButtonBaseStyle}"/>
+                            </StackPanel>
+                    
+                        </GroupBox>
+                        <GroupBox Width="200" HorizontalAlignment="Left" Header="Rail Methods" Style="{StaticResource GroupBox}">
+                    
+                            <StackPanel>
+                                <Button Content="Draw Rail" Style="{StaticResource ButtonBaseStyle}"/>
+                                <Button Content="Add Rail To Production Drawing" Style="{StaticResource ButtonBaseStyle}"/>
+                            </StackPanel>
+                    
+                        </GroupBox>
+                    </StackPanel>
+                </ScrollViewer>
+                
+            </TabItem>
+            
+        </TabControl>
+        
+        <Grid Grid.Row="1" HorizontalAlignment="Stretch" Style="{StaticResource BottomBar}">
+        
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+        
+            <Border Grid.Row="0" BorderThickness="0.5" BorderBrush="#999"/>
+        
+            <Grid Grid.Row="1" HorizontalAlignment="Stretch">
+                <Grid HorizontalAlignment="Stretch">
+                    <Button Content="Home" Click="Home_OnClicked" Style="{StaticResource ButtonBaseStyle}" HorizontalAlignment="Left"/>
+                </Grid>
+            </Grid>
+        
+        </Grid>
+        
+    </Grid>
+    
+</UserControl>

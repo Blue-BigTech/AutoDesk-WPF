@@ -1,0 +1,89 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <Style x:Key="MenuButton" TargetType="Button">
+        <Setter Property="Padding" Value="20,0,20,0"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="#888888"/>
+        <Setter Property="BorderThickness" Value="0, 0, 0, 0.5"/>
+        <!-- <Style.Resources> -->
+        <!--     <Style TargetType="Border"> -->
+        <!--         <Setter Property="CornerRadius" Value="3"/> -->
+        <!--     </Style> -->
+        <!-- </Style.Resources> -->
+    </Style> 
+    
+    <Style x:Key="ButtonBaseStyle" TargetType="{x:Type Button}">
+        <Setter Property="Padding" Value="10,0,10,0"/>
+        <Setter Property="Margin" Value="4"/>
+        <Setter Property="Height" Value="26"/>
+        <Setter Property="Background" Value="#FFFFFF"/>
+        <Setter Property="BorderBrush" Value="#707070"/>
+                
+        <Style.Resources>
+            <Style TargetType="Border">
+                <Setter Property="CornerRadius" Value="2"/>
+            </Style>
+        </Style.Resources>
+                
+    </Style>
+    
+    <Style x:Key="WindowControlButton" TargetType="{x:Type Button}">
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Width" Value="12"/>
+        <Setter Property="Height" Value="12"/>
+        <Setter Property="BorderThickness" Value="0"/>
+                
+        <Style.Resources>
+            <Style TargetType="Border">
+                <Setter Property="CornerRadius" Value="15"/>
+            </Style>
+        </Style.Resources>
+                
+    </Style>
+    
+    <Style x:Key="TextBox" TargetType="TextBox">
+        <Setter Property="Width" Value="20"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Margin" Value="4"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        
+        <!-- Overriding the error template -->
+        <Setter Property="Validation.ErrorTemplate">
+            <Setter.Value>
+                <ControlTemplate>
+                    <StackPanel>
+                        <AdornedElementPlaceholder x:Name="textBox" />
+                        <ItemsControl ItemsSource="{Binding}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate DataType="ValidationError">
+                                    <TextBlock Text="{Binding ErrorContent}" Foreground="Red" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        
+    </Style>
+    
+    <Style x:Key="GroupBox" TargetType="GroupBox">
+        <Setter Property="Margin" Value="5"/>
+    </Style>
+        
+    <Style x:Key="GridSpace" TargetType="Grid">
+        <Setter Property="Margin" Value="10"/>
+    </Style>
+    
+    <Style x:Key="BottomBar" TargetType="Grid">
+        <Setter Property="Background" Value="#D9D9E1"/>
+        <Setter Property="Height" Value="40"/>
+    </Style>
+    
+    <Style x:Key="BottomRow" TargetType="RowDefinition">
+        <Setter Property="Height" Value="40"/>
+    </Style>
+    
+</ResourceDictionary>

@@ -1,0 +1,245 @@
+﻿<UserControl x:Class="GUI.Views.ProductViews.HingeDoorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm="clr-namespace:GUI.ViewModels"
+             xmlns:viewModels="clr-namespace:GUI.ViewModels"
+             xmlns:ProductViewModel="clr-namespace:GUI.ViewModels.ProductViewModels"
+             mc:Ignorable="d"
+             HorizontalAlignment="Stretch"
+             VerticalAlignment="Stretch"
+             HorizontalContentAlignment="Stretch"
+             VerticalContentAlignment="Stretch"
+             d:DesignHeight="400"
+             d:DesignWidth="650"
+             Width="650" Height="400">
+    
+    <UserControl.Resources>
+        <ResourceDictionary>
+            
+            <viewModels:MainViewModel x:Key="Vm"/>
+            
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/GUI;component/Styles/ApplicationStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid DataContext="{StaticResource Vm}">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Style="{StaticResource BottomRow}"/>
+        </Grid.RowDefinitions>
+        
+        <Grid DataContext="{StaticResource Vm}">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <GroupBox Grid.Row="0" Header="Hinge Door Settings" Margin="4">
+
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <ScrollViewer>
+                        
+                        <StackPanel>
+
+                                <Grid Style="{StaticResource GridSpace}">
+                                    
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <StackPanel>
+                                        <Grid>
+                                            <Label Content="Door Horizontal Design Profile" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.DoorHorizontalDesignProfile)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Door Vertical Design Profile" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.DoorVerticalDesignProfile)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Door Standing Profile" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.DoorStandingProfile)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Door Top Profile" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.DoorTopProfile)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Default Gap Door To Wall" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.DefaultGapDoorToWall)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Default Gap Door To Floor" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.DefaultGapDoorToFloor)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Default Gap Door To Ceiling" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.DefaultGapDoorToCeiling)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Default Gap Door To Door" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.DefaultGapDoorToDoor)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Default Gap Door To Sidelight" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.DefaultGapDoorToSidelight)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Sidelight Standing Profile" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.SidelightStandingProfile)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Sidelight Top Profile" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.SidelightTopProfile)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Sidelight Bottom Profile" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.SidelightBottomProfile)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Default Gap Sidelight To Wall" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.DefaultGapSidelightToWall)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Default Gap Sidelight To Floor" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.DefaultGapSidelightToFloor)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Default Gap Sidelight To Ceiling" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.DefaultGapSidelightToCeiling)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Element Thickness" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.ElementThickness)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Profile Wall Thickness" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.ProfileWallThickness)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Is Closing Strip Only Top" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.IsClosingStripOnlyTop)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Hinge Height" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.HingeHeight)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Top Strip Width" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.TopStripWidth)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Top View Strip Thickness" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.TopViewStripThickness)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Standing Strip Width" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.StandingStripWidth)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Magnet Radius" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.MagnetRadius)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Hinge Radius" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.HingeRadius)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Magnet Edge Offset" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.MagnetEdgeOffset)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Profile Radius" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.ProfileRadius)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Production Frame Profile Margin" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.ProductionFrameProfileMargin)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Production Strip Details Margin" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.ProductionStripDetailsMargin)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Dim Initial Offset Frame" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.DimInitialOffsetFrame)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Frame Left Standing Profile" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.FrameLeftStandingProfile)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Frame Right Standing Profile" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.FrameRightStandingProfile)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Frame Top Profile" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.FrameTopProfile)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Default Gap Frame To Wall" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.DefaultGapFrameToWall)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Default Gap Frame To Ceiling" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.DefaultGapFrameToCeiling)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Default Gap Frame To Floor" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.DefaultGapFrameToFloor)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        <Grid>
+                                            <Label Content="Default Gap Door To Frame" HorizontalAlignment="Left"/>
+                                            <TextBox Text="{Binding (ProductViewModel:HingeDoorViewModel.DefaultGapDoorToFrame)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                        </Grid>
+                                        
+                                    </StackPanel>
+                                    
+                                </Grid>
+
+                        </StackPanel>
+                        
+                    </ScrollViewer>
+                    
+                </Grid>
+                
+            </GroupBox>
+
+        </Grid>
+        
+        <Grid Grid.Row="1" HorizontalAlignment="Stretch" Style="{StaticResource BottomBar}">
+        
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+        
+            <Border Grid.Row="0" BorderThickness="0.5" BorderBrush="#999"/>
+        
+            <Grid Grid.Row="1" HorizontalAlignment="Stretch">
+                <Grid HorizontalAlignment="Stretch">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="Back" Click="Back_GeneralProductView" Style="{StaticResource ButtonBaseStyle}" HorizontalAlignment="Left"/>
+                        <Button Content="Home" Click="Back_HomeView" Style="{StaticResource ButtonBaseStyle}" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                    <Button Content="Next" Click="Next_DesignView" Style="{StaticResource ButtonBaseStyle}" HorizontalAlignment="Right"/>
+                </Grid>
+            </Grid>
+        
+        </Grid>
+        
+    </Grid>
+    
+</UserControl>

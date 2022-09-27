@@ -1,0 +1,179 @@
+﻿<UserControl x:Class="GUI.Views.ProductViews.PivotDoorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModels="clr-namespace:GUI.ViewModels"
+             xmlns:ProductViewModel="clr-namespace:GUI.ViewModels.ProductViewModels"
+             mc:Ignorable="d"
+             HorizontalAlignment="Stretch"
+             VerticalAlignment="Stretch"
+             HorizontalContentAlignment="Stretch"
+             VerticalContentAlignment="Stretch"
+             d:DesignHeight="400"
+             d:DesignWidth="650"
+             Width="650" Height="400">
+    
+    <UserControl.Resources>
+        <ResourceDictionary>
+            
+            <viewModels:MainViewModel x:Key="Vm"/>
+            
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/GUI;component/Styles/ApplicationStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid DataContext="{StaticResource Vm}">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Style="{StaticResource BottomRow}"/>
+        </Grid.RowDefinitions>
+        
+        <Grid DataContext="{StaticResource Vm}">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <GroupBox Grid.Row="0" Header="Pivot Door Settings" Margin="4">
+
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <ScrollViewer>
+                        
+                        <StackPanel>
+                                
+                            <Grid Style="{StaticResource GridSpace}">
+                                
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                
+                                <StackPanel>
+                                    <Grid>
+                                        <Label Content="Door Horizontal Design Profile" HorizontalAlignment="Left"/>
+                                        <TextBox Text="{Binding (ProductViewModel:PivotDoorViewModel.DoorHorizontalDesignProfile)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                    </Grid>
+                                    <Grid>
+                                        <Label Content="Door Vertical Design Profile" HorizontalAlignment="Left"/>
+                                        <TextBox Text="{Binding (ProductViewModel:PivotDoorViewModel.DoorVerticalDesignProfile)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                    </Grid>
+                                    <Grid>
+                                        <Label Content="Door Standing Profile" HorizontalAlignment="Left"/>
+                                        <TextBox Text="{Binding (ProductViewModel:PivotDoorViewModel.DoorStandingProfile)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                    </Grid>
+                                    <Grid>
+                                        <Label Content="Door Top Profile" HorizontalAlignment="Left"/>
+                                        <TextBox Text="{Binding (ProductViewModel:PivotDoorViewModel.DoorTopProfile)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                    </Grid>
+                                    <Grid>
+                                        <Label Content="Door Bottom Profile" HorizontalAlignment="Left"/>
+                                        <TextBox Text="{Binding (ProductViewModel:PivotDoorViewModel.DoorBottomProfile)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                    </Grid>
+                                    <Grid>
+                                        <Label Content="Default Gap Door To Wall" HorizontalAlignment="Left"/>
+                                        <TextBox Text="{Binding (ProductViewModel:PivotDoorViewModel.DefaultGapDoorToWall)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                    </Grid>
+                                    <Grid>
+                                        <Label Content="Default Gap Door To Floor" HorizontalAlignment="Left"/>
+                                        <TextBox Text="{Binding (ProductViewModel:PivotDoorViewModel.DefaultGapDoorToFloor)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                    </Grid>
+                                    <Grid>
+                                        <Label Content="Default Gap Door To Ceiling" HorizontalAlignment="Left"/>
+                                        <TextBox Text="{Binding (ProductViewModel:PivotDoorViewModel.DefaultGapDoorToCeiling)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                    </Grid>
+                                    <Grid>
+                                        <Label Content="Default Gap Door To Door" HorizontalAlignment="Left"/>
+                                        <TextBox Text="{Binding (ProductViewModel:PivotDoorViewModel.DefaultGapDoorToDoor)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                    </Grid>
+                                    <Grid>
+                                        <Label Content="Default Gap Door To Sidelight" HorizontalAlignment="Left"/>
+                                        <TextBox Text="{Binding (ProductViewModel:PivotDoorViewModel.DefaultGapDoorToSidelight)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                    </Grid>
+                                    <Grid>
+                                        <Label Content="Sidelight Standing Profile" HorizontalAlignment="Left"/>
+                                        <TextBox Text="{Binding (ProductViewModel:PivotDoorViewModel.SidelightStandingProfile)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                    </Grid>
+                                    <Grid>
+                                        <Label Content="Sidelight Top Profile" HorizontalAlignment="Left"/>
+                                        <TextBox Text="{Binding (ProductViewModel:PivotDoorViewModel.SidelightTopProfile)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                    </Grid>
+                                    <Grid>
+                                        <Label Content="Sidelight Bottom Profile" HorizontalAlignment="Left"/>
+                                        <TextBox Text="{Binding (ProductViewModel:PivotDoorViewModel.SidelightBottomProfile)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                    </Grid>
+                                    <Grid>
+                                        <Label Content="Default Gap Sidelight To Wall" HorizontalAlignment="Left"/>
+                                        <TextBox Text="{Binding (ProductViewModel:PivotDoorViewModel.DefaultGapSidelightToWall)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                    </Grid>
+                                    <Grid>
+                                        <Label Content="Default Gap Sidelight To Floor" HorizontalAlignment="Left"/>
+                                        <TextBox Text="{Binding (ProductViewModel:PivotDoorViewModel.DefaultGapSidelightToFloor)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                    </Grid>
+                                    <Grid>
+                                        <Label Content="Default Gap Sidelight To Ceiling" HorizontalAlignment="Left"/>
+                                        <TextBox Text="{Binding (ProductViewModel:PivotDoorViewModel.DefaultGapSidelightToCeiling)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                    </Grid>
+                                    <Grid>
+                                        <Label Content="Element Thickness" HorizontalAlignment="Left"/>
+                                        <TextBox Text="{Binding (ProductViewModel:PivotDoorViewModel.ElementThickness)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                    </Grid>
+                                    <Grid>
+                                        <Label Content="Profile Wall Thickness" HorizontalAlignment="Left"/>
+                                        <TextBox Text="{Binding (ProductViewModel:PivotDoorViewModel.ProfileWallThickness)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                    </Grid>
+                                    <Grid>
+                                        <Label Content="Pivot Point Distance" HorizontalAlignment="Left"/>
+                                        <TextBox Text="{Binding (ProductViewModel:PivotDoorViewModel.PivotPointDistance)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                    </Grid>
+                                    <Grid>
+                                        <Label Content="Pivot Line Length" HorizontalAlignment="Left"/>
+                                        <TextBox Text="{Binding (ProductViewModel:PivotDoorViewModel.PivotLineLength)}" Style="{StaticResource SettingTextBox}" HorizontalContentAlignment="Right"/>
+                                    </Grid>
+                                </StackPanel>
+                                
+                            </Grid>
+
+                        </StackPanel>
+                        
+                    </ScrollViewer>
+                    
+                </Grid>
+
+            </GroupBox>
+
+        </Grid>
+        
+        <Grid Grid.Row="1" HorizontalAlignment="Stretch" Style="{StaticResource BottomBar}">
+        
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+        
+            <Border Grid.Row="0" BorderThickness="0.5" BorderBrush="#999"/>
+        
+            <Grid Grid.Row="1" HorizontalAlignment="Stretch">
+                <Grid HorizontalAlignment="Stretch">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="Back" Click="Back_GeneralProductView" Style="{StaticResource ButtonBaseStyle}" HorizontalAlignment="Left"/>
+                        <Button Content="Home" Click="Back_HomeView" Style="{StaticResource ButtonBaseStyle}" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                    <Button Content="Next" Click="Next_DesignView" Style="{StaticResource ButtonBaseStyle}" HorizontalAlignment="Right"/>
+                </Grid>
+            </Grid>
+        
+        </Grid>
+        
+    </Grid>
+    
+</UserControl>

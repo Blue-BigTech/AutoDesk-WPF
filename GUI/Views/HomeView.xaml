@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="GUI.Views.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModels="clr-namespace:GUI.ViewModels"
+             mc:Ignorable="d"
+             HorizontalAlignment="Stretch"
+             VerticalAlignment="Stretch"
+             HorizontalContentAlignment="Stretch"
+             VerticalContentAlignment="Stretch"
+             d:DesignHeight="400"
+             d:DesignWidth="650"
+             Width="650" Height="400">
+    
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <viewModels:MainViewModel x:Key="Vm"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/GUI;component/Styles/ApplicationStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid DataContext="{StaticResource Vm}">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Style="{StaticResource BottomRow}"/>
+        </Grid.RowDefinitions>
+        
+        <Grid Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center">
+        
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+
+                <Button Content="Construction" Click="Construction_OnClicked" Style="{StaticResource ButtonBaseStyle}"/>
+                <Button Content="Automatic" Click="Automatic_OnClicked" Style="{StaticResource ButtonBaseStyle}" />
+                <Button Content="Manual" Click="Manual_OnClicked" Style="{StaticResource ButtonBaseStyle}" />
+                <Button Content="Settings" Style="{StaticResource ButtonBaseStyle}"/>
+
+            </StackPanel>
+            
+            <!-- <Button Click="Construction_OnClicked" Height="100" Grid.Column="1" Background="Transparent" BorderBrush="Transparent"> -->
+            <!--     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand"> -->
+            <!--         <Image Source="pack://application:,,,/DoorPROGUI;component/Images/ConstructionOpening.png" Width="75"/> -->
+            <!--         <Label>Construction Opening</Label> -->
+            <!--     </StackPanel> -->
+            <!-- </Button> -->
+            <!-- -->
+            <!-- <Button Click="Automatic_OnClicked" Height="100" Grid.Column="2" Background="Transparent" BorderBrush="Transparent"> -->
+            <!--     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand"> -->
+            <!--         <Image Source="pack://application:,,,/DoorPROGUI;component/Images/AutomaticDrawing.png" Width="75"/> -->
+            <!--         <Label>Automatic Drawing</Label> -->
+            <!--     </StackPanel> -->
+            <!-- </Button> -->
+            <!-- -->
+            <!-- <Button Click="Manual_OnClicked" Height="100" Grid.Column="3" Background="Transparent" BorderBrush="Transparent"> -->
+            <!--     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand"> -->
+            <!--         <Image Source="pack://application:,,,/DoorPROGUI;component/Images/ManualDrawing.png" Width="75"/> -->
+            <!--         <Label>Manual Drawing</Label> -->
+            <!--     </StackPanel> -->
+            <!-- </Button> -->
+            <!-- -->
+            <!-- <Button Height="100" Grid.Column="4" Background="Transparent" BorderBrush="Transparent"> -->
+            <!--     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand"> -->
+            <!--         <Image Source="pack://application:,,,/DoorPROGUI;component/Images/GlobalSettings.png" Width="75"/> -->
+            <!--         <Label>Application Settings</Label> -->
+            <!--     </StackPanel> -->
+            <!-- </Button> -->
+        
+        </Grid>
+        
+        <Grid Grid.Row="1" HorizontalAlignment="Stretch" Style="{StaticResource BottomBar}">
+        
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+        
+            <Border Grid.Row="0" BorderThickness="0.5" BorderBrush="#999"/>
+        
+            <Grid Grid.Row="1" HorizontalAlignment="Stretch">
+                <Grid HorizontalAlignment="Stretch">
+                    
+                </Grid>
+            </Grid>
+        
+        
+        </Grid>
+        
+    </Grid>
+</UserControl>

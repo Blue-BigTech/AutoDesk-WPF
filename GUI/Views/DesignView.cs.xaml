@@ -1,0 +1,102 @@
+﻿<UserControl x:Class="GUI.Views.DesignView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:vm="clr-namespace:GUI.ViewModels"
+             xmlns:viewModels="clr-namespace:GUI.ViewModels"
+             mc:Ignorable="d"
+             HorizontalAlignment="Stretch"
+             VerticalAlignment="Stretch"
+             HorizontalContentAlignment="Stretch"
+             VerticalContentAlignment="Stretch"
+             d:DesignHeight="400"
+             d:DesignWidth="650"
+             Width="650" Height="400">
+    
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <viewModels:MainViewModel x:Key="Vm"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/GUI;component/Styles/ApplicationStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid DataContext="{StaticResource Vm}">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Style="{StaticResource BottomRow}"/>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0" Style="{StaticResource GridSpace}">
+            
+            <GroupBox Header="Door Design" Style="{StaticResource GroupBox}">
+                
+                <Grid HorizontalAlignment="Stretch" Style="{StaticResource GridSpace}">
+                    
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <ComboBox ItemsSource="{Binding DesignViewModel.Designs}" SelectedValue="{Binding DesignViewModel.SelectedDesign}" Margin="0,0,0,10" Height="25" Grid.Row="0" Grid.Column="0"/>
+                    
+                    <GroupBox x:Name="DesignSettings" Visibility="Visible" Grid.Row="1" Grid.Column="0" Header="Asymmetric design" Padding="5">
+                        
+                        <StackPanel>
+                            
+                            <CheckBox Margin="5" Content="Mirrored"/>
+                        
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Design X:" />
+                                <TextBox Width="50" Style="{StaticResource TextBox}"/>
+                            </StackPanel>
+                        
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Design Y:" />
+                                <TextBox Width="50" Style="{StaticResource TextBox}"/>
+                            </StackPanel>
+                            
+                        </StackPanel>
+                        
+                    </GroupBox>
+                    
+                    <Image MaxHeight="300" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Source="pack://application:,,,/GUI;component/Images/Designs/Pablo.jpg"/>
+
+                </Grid>
+                
+            </GroupBox>
+            
+        </Grid>
+        
+        <Grid Grid.Row="1" HorizontalAlignment="Stretch" Style="{StaticResource BottomBar}">
+        
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+        
+            <Border Grid.Row="0" BorderThickness="0.5" BorderBrush="#999"/>
+        
+            <Grid Grid.Row="1" HorizontalAlignment="Stretch">
+                <Grid HorizontalAlignment="Stretch">
+                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                        <Button Click="Back_SpecificProductView" Content="Back" Style="{StaticResource ButtonBaseStyle}"/>
+                        <Button Click="Back_HomeView" Content="Home" Style="{StaticResource ButtonBaseStyle}"/>
+                    </StackPanel>
+                    <Button Click="Next_HandleView" Content="Next" HorizontalAlignment="Right" Style="{StaticResource ButtonBaseStyle}"/>
+                </Grid>
+            </Grid>
+        
+        </Grid>
+        
+    </Grid>
+    
+</UserControl>

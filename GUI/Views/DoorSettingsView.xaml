@@ -1,0 +1,231 @@
+﻿<UserControl x:Class="DoorPROGUI.Views.DoorSettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModels="clr-namespace:DoorPROGUI.ViewModels"
+             mc:Ignorable="d"
+             d:DesignWidth="630"
+             d:DesignHeight="400"
+             HorizontalAlignment="Stretch"
+             VerticalAlignment="Stretch"
+             HorizontalContentAlignment="Stretch"
+             VerticalContentAlignment="Stretch"
+             Height="auto"
+             Width="auto">
+    
+        <!--     <UserControl.Resources> -->
+        <!--          -->
+        <!--         <ResourceDictionary> -->
+        <!--             <viewModels:MainViewModel x:Key="Vm"/> -->
+        <!--             <ResourceDictionary.MergedDictionaries> -->
+        <!--                 <ResourceDictionary Source="pack://application:,,,/DoorPROGUI;component/Resources/ApplicationStyle.xaml"/> -->
+        <!--             </ResourceDictionary.MergedDictionaries> -->
+        <!--         </ResourceDictionary> -->
+        <!--          -->
+        <!--     </UserControl.Resources> -->
+        <!-- -->
+        <!-- <Grid DataContext="{StaticResource Vm}"> -->
+        <!--      -->
+        <!--     <Grid.RowDefinitions> -->
+        <!--         <RowDefinition Height="*"/> -->
+        <!--         <RowDefinition Height="Auto"/> -->
+        <!--     </Grid.RowDefinitions> -->
+        <!--      -->
+        <!--     <GroupBox Header="Door Settings" Margin="4"> -->
+        <!-- -->
+        <!--         <Grid> -->
+        <!--              -->
+        <!--             <Grid.ColumnDefinitions> -->
+        <!--                 <ColumnDefinition MinWidth="180" Width="*" /> -->
+        <!--                 <ColumnDefinition MinWidth="200" Width="*"/> -->
+        <!--                 <ColumnDefinition MinWidth="220" Width="*"/> -->
+        <!--             </Grid.ColumnDefinitions> -->
+        <!--              -->
+        <!--             <StackPanel Grid.Column="0"> -->
+        <!-- -->
+        <!--                 <GroupBox Header="Single or Double" Style="{StaticResource GroupBox}"> -->
+        <!-- -->
+        <!--                     <Grid Style="{StaticResource GridSpace}"> -->
+        <!-- -->
+        <!--                         <Grid.RowDefinitions> -->
+        <!--                             <RowDefinition Height="*" /> -->
+        <!--                             <RowDefinition Height="*" /> -->
+        <!--                         </Grid.RowDefinitions> -->
+        <!--                              -->
+        <!--                         <Grid.ColumnDefinitions> -->
+        <!--                             <ColumnDefinition Width="*" /> -->
+        <!--                             <ColumnDefinition Width="*" /> -->
+        <!--                         </Grid.ColumnDefinitions> -->
+        <!-- -->
+        <!--                         <RadioButton x:Name="SingleDoor" Grid.Row="0" Grid.Column="0" Content="Single" IsChecked="{Binding Dvm.IsSingleDoor}" /> -->
+        <!--                         <RadioButton x:Name="DoubleDoor" Grid.Row="0" Grid.Column="1" Content="Double" /> -->
+        <!--                         <StackPanel x:Name="PivotPointSettings" Visibility="Visible" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal"> -->
+        <!--                             <Label Margin="0, 10, 0, 0" Content="Pivot Point:"/> -->
+        <!--                             <TextBox Width="55" Height="20" Margin="5, 10, 0, 0" Text="{Binding Dvm.PivotPoint}"/> -->
+        <!--                         </StackPanel> -->
+        <!--                     </Grid> -->
+        <!-- -->
+        <!--                 </GroupBox> -->
+        <!-- -->
+        <!--                 <GroupBox x:Name="TurningSettings" Header="Turning" Style="{StaticResource GroupBox}"> -->
+        <!-- -->
+        <!--                     <Grid Style="{StaticResource GridSpace}"> -->
+        <!-- -->
+        <!--                         <Grid.ColumnDefinitions> -->
+        <!--                             <ColumnDefinition Width="*" /> -->
+        <!--                             <ColumnDefinition Width="*" /> -->
+        <!--                         </Grid.ColumnDefinitions> -->
+        <!-- -->
+        <!--                         <RadioButton x:Name="TurningLeft" Grid.Column="0" Content="Left" IsChecked="{Binding Dvm.IsTurningLeft}" /> -->
+        <!--                         <RadioButton x:Name="TurningRight" Grid.Column="1" Content="Right" /> -->
+        <!-- -->
+        <!--                     </Grid> -->
+        <!-- -->
+        <!--                 </GroupBox> -->
+        <!-- -->
+        <!--                 <GroupBox Header="Closing Strips" Style="{StaticResource GroupBox}"> -->
+        <!-- -->
+        <!--                     <Grid Style="{StaticResource GridSpace}"> -->
+        <!-- -->
+        <!--                         <Grid.ColumnDefinitions> -->
+        <!--                             <ColumnDefinition Width="*" /> -->
+        <!--                             <ColumnDefinition Width="*" /> -->
+        <!--                         </Grid.ColumnDefinitions> -->
+        <!-- -->
+        <!--                         <RadioButton x:Name="StripTop" Grid.Column="0" Content="Top" IsChecked="{Binding Dvm.IsClosingStripTop}" /> -->
+        <!--                         <RadioButton x:Name="StripAround" Grid.Column="1" Content="Around" /> -->
+        <!-- -->
+        <!--                     </Grid> -->
+        <!-- -->
+        <!--                 </GroupBox> -->
+        <!-- -->
+        <!--             </StackPanel> -->
+        <!-- -->
+        <!--             <StackPanel Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Top"> -->
+        <!-- -->
+        <!--                 <GroupBox Header="Select Sidelights" Style="{StaticResource GroupBox}"> -->
+        <!-- -->
+        <!--                     <Grid Style="{StaticResource GridSpace}"> -->
+        <!-- -->
+        <!--                         <Grid.ColumnDefinitions> -->
+        <!--                             <ColumnDefinition Width="*" /> -->
+        <!--                             <ColumnDefinition Width="*" /> -->
+        <!--                         </Grid.ColumnDefinitions> -->
+        <!-- -->
+        <!--                         <Grid.RowDefinitions> -->
+        <!--                             <RowDefinition Height="auto" /> -->
+        <!--                             <RowDefinition Height="auto" /> -->
+        <!--                             <RowDefinition Height="auto" /> -->
+        <!--                         </Grid.RowDefinitions> -->
+        <!-- -->
+        <!--                         <CheckBox x:Name="LeftSidelight" Grid.Column="0" Grid.Row="0" Content="Left" /> -->
+        <!--                         <CheckBox x:Name="RightSidelight" Grid.Column="1" Grid.Row="0" Content="Right" /> -->
+        <!-- -->
+        <!--                         <StackPanel x:Name="LSLSettings" Margin="0, 10, 0, 0" Visibility="Visible" -->
+        <!--                                     Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal"> -->
+        <!--                             <Label Content="L. Sidelight Width:" /> -->
+        <!--                             <TextBox x:Name="LeftSidelightWidth" Padding="20, 0, 20, 0" Height="20" Text="{Binding Dvm.LSLWidth}" /> -->
+        <!--                         </StackPanel> -->
+        <!-- -->
+        <!--                         <StackPanel Margin="0,10,0,0" x:Name="RSLSettings" Visibility="Visible" Grid.Column="0" -->
+        <!--                                     Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal"> -->
+        <!--                             <Label Content="R. Sidelight Width:" /> -->
+        <!--                             <TextBox x:Name="RightSidelightWidth" Padding="20, 0, 20, 0" Height="20" Text="{Binding Dvm.RSLWidth}" /> -->
+        <!--                         </StackPanel> -->
+        <!-- -->
+        <!--                     </Grid> -->
+        <!-- -->
+        <!--                 </GroupBox> -->
+        <!-- -->
+        <!--             </StackPanel> -->
+        <!--              -->
+        <!--             <StackPanel Grid.Column="2"> -->
+        <!-- -->
+        <!--                 <GroupBox Header="Slant Settings" Style="{StaticResource GroupBox}"> -->
+        <!-- -->
+        <!--                     <Grid Style="{StaticResource GridSpace}"> -->
+        <!--                         <Grid.ColumnDefinitions> -->
+        <!--                             <ColumnDefinition Width="*" /> -->
+        <!--                             <ColumnDefinition Width="*" /> -->
+        <!--                         </Grid.ColumnDefinitions> -->
+        <!-- -->
+        <!--                         <Grid.RowDefinitions> -->
+        <!--                             <RowDefinition Height="auto" /> -->
+        <!--                             <RowDefinition Height="auto" /> -->
+        <!--                             <RowDefinition Height="auto" /> -->
+        <!--                         </Grid.RowDefinitions> -->
+        <!-- -->
+        <!--                         <CheckBox x:Name="LeftSlantCheckbox" Visibility="Visible" Checked="LeftSlant_OnChecked" Unchecked="LeftSlant_OnUnchecked" IsChecked="{Binding Dvm.HasLeftSlant}" Grid.Column="0" Grid.Row="0" Content="Left" Margin="10,0,0,0"/> -->
+        <!-- -->
+        <!--                         <CheckBox x:Name="RightSlantCheckbox" Visibility="Visible" Checked="RightSlant_OnChecked" Unchecked="RightSlant_OnUnchecked" IsChecked="{Binding Dvm.HasRightSlant}" Grid.Column="1" Grid.Row="0" Content="Right"/> -->
+        <!-- -->
+        <!--                         <GroupBox x:Name="LeftSlantSettings" Margin="0,10,0,0" Visibility="Visible" Header="Left Side Slant Settings" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"> -->
+        <!-- -->
+        <!--                             <StackPanel Margin="6" Orientation="Vertical"> -->
+        <!-- -->
+        <!--                                 <StackPanel Orientation="Horizontal"> -->
+        <!--                                     <RadioButton x:Name="LeftTopSlant" Content="Top" IsChecked="{Binding Dvm.IsLeftSlantTop}"/> -->
+        <!--                                     <RadioButton x:Name="LeftBottomSlant" Content="Bottom" Margin="20,0,0,0" /> -->
+        <!--                                 </StackPanel> -->
+        <!-- -->
+        <!--                                 <StackPanel Orientation="Horizontal" Margin="0,10,0,0"> -->
+        <!--                                     <Label Content="Slant Amount:" Margin="0,0,4,0" /> -->
+        <!--                                     <TextBox Text="{Binding Dvm.LeftSlantAmount}" Width="50" Height="20" HorizontalAlignment="Left" /> -->
+        <!--                                 </StackPanel> -->
+        <!-- -->
+        <!--                             </StackPanel> -->
+        <!-- -->
+        <!--                         </GroupBox> -->
+        <!-- -->
+        <!--                         <GroupBox x:Name="RightSlantSettings" Margin="0,10,0,0" Visibility="Visible" Header="Right Side Slant Settings" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"> -->
+        <!-- -->
+        <!--                             <StackPanel Margin="6" Orientation="Vertical"> -->
+        <!-- -->
+        <!--                                 <StackPanel Orientation="Horizontal"> -->
+        <!--                                     <RadioButton Content="Top" IsChecked="{Binding Dvm.IsRightSlantTop}"/> -->
+        <!--                                     <RadioButton Content="Bottom" Margin="20,0,0,0" /> -->
+        <!--                                 </StackPanel> -->
+        <!-- -->
+        <!--                                 <StackPanel Orientation="Horizontal" Margin="0,10,0,0"> -->
+        <!--                                     <Label Content="Slant Amount:" Margin="0,0,4,0" /> -->
+        <!--                                     <TextBox Text="{Binding Dvm.RightSlantAmount}" Width="50" Height="20" HorizontalAlignment="Left" /> -->
+        <!--                                 </StackPanel> -->
+        <!-- -->
+        <!--                             </StackPanel> -->
+        <!-- -->
+        <!--                         </GroupBox> -->
+        <!-- -->
+        <!--                     </Grid> -->
+        <!-- -->
+        <!--                 </GroupBox> -->
+        <!-- -->
+        <!--             </StackPanel> -->
+        <!--         </Grid> -->
+        <!--      -->
+        <!--      -->
+        <!--     </GroupBox> -->
+        <!--      -->
+        <!--     <Grid Grid.Row="1" HorizontalAlignment="Stretch" Background="#FAFAFA"> -->
+        <!-- -->
+        <!--         <Grid.RowDefinitions> -->
+        <!--             <RowDefinition Height="Auto"/> -->
+        <!--             <RowDefinition Height="*"/> -->
+        <!--         </Grid.RowDefinitions> -->
+        <!--      -->
+        <!--         <Border Grid.Row="0" BorderThickness="0.5" BorderBrush="#999"/> -->
+        <!--      -->
+        <!--         <Grid Grid.Row="1" HorizontalAlignment="Stretch"> -->
+        <!--             <StackPanel Orientation="Horizontal"> -->
+        <!--                 <Button x:Name="BackButton" Visibility="Visible" HorizontalAlignment="Left" Content="Back" Style="{StaticResource ButtonBaseStyle}" Click="BackButton_OnClick"/> -->
+        <!--                 <Button x:Name="SettingsButton" Visibility="Visible" HorizontalAlignment="Left" Content="Settings" Style="{StaticResource ButtonBaseStyle}" /> -->
+        <!--             </StackPanel> -->
+        <!--              -->
+        <!--             <Button x:Name="DesignSelectionButton" Click="DesignSelectionButton_OnClick" Visibility="Visible" HorizontalAlignment="Right" Content="Design Selection" Style="{StaticResource ButtonBaseStyle}" /> -->
+        <!--         </Grid> -->
+        <!--      -->
+        <!--     </Grid> -->
+        <!--      -->
+        <!-- </Grid> -->
+    
+</UserControl>
